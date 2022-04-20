@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TevekenysegController;
+use App\Http\Controllers\BejegyzesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/tevekenysegVisszaad', [TevekenysegController::class, 'index']);
+
+
+Route::get('/bejegyzesVisszaad', [BejegyzesController::class, 'index2']);
+Route::get('/bejegyzesVisszaad/{osztalyId}', [BejegyzesController::class, 'index3']);
+Route::post('/ujBejegyzes', [BejegyzesController::class, 'index']);
+
+/*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';*/
